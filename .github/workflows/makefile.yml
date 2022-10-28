@@ -21,4 +21,4 @@ jobs:
       run: make build
       
     - name: Run cpubars
-      run: make cpubars
+      run: ./cpubars.o
