@@ -939,7 +939,7 @@ main(int argc, char **argv)
                         char *end;
                         float val = strtof(optarg, &end);
                         if (*end) {
-                                fprintf(stderr, "Delay argument (-d) requires "
+                                fprintf(stderr, "\033[0;31m[X]\033[0;37m Delay argument (-d) requires "
                                         "a number\n");
                                 exit(2);
                         }
@@ -967,7 +967,7 @@ main(int argc, char **argv)
                 }
         }
         if (optind < argc) {
-                fprintf(stderr, "Unexpected arguments\n");
+                fprintf(stderr, "\033[0;31m[X]\033[0;37m Unexpected arguments\n");
                 exit(2);
         }
 
