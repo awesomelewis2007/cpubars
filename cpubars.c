@@ -1,5 +1,4 @@
 // -*- c-file-style: "bsd" -*-
-
 #include <sys/time.h>
 #include <ctype.h>
 #include <errno.h>
