@@ -1,8 +1,13 @@
+# cpubars
 cpubars is a simple terminal-based tool for monitoring CPU load in
 real-time, especially tailored to monitoring large multicores over
 SSH.
 
-![Screenshot](/../screenshots/80.png)
+![Screenshot](doc/pic_1.png)
+![Screenshot](doc/pic_2.png)
+
+## How it works
+___
 
 cpubars uses Unicode block drawing characters to show the precise
 breakdown of CPU usage for each CPU.
@@ -12,8 +17,8 @@ processes like benchmarks, and uses the terminal efficiently (and
 hence remote connections over SSH, Mosh, etc.).
 
 
-Terminal support
-----------------
+## Terminal support
+___
 
 cpubars can operate in either Unicode or ASCII mode.  In Unicode mode,
 cpubars can show fine-grained divisions in each CPU usage bar.  ASCII
