@@ -2,7 +2,7 @@ all: build
 
 # this installs dependancies
 setup:
-	sudo apt-get gcc
+	sudo apt-get install gcc
 	sudo apt-get install libncurses5-dev libncursesw5-dev
 
 build:
