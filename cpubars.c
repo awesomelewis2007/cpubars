@@ -48,16 +48,20 @@
         (b) = __a;                              \
         })
 
+
 static void term_reset(void);
 
 void
 panic(const char *fmt, ...)
 {
+        // Add [PANIC] to start of message.
+        char fmt_msg[100];
+        snprintf(fmt_msg, sizeof fmt_msg, "\033[0;31m[PANIC]\033[0;37m %s", fmt);
+        //fmt_msg = \033[0;31m[PANIC]\033[0;37m + fmt
         va_list ap;
-
         term_reset();
         va_start(ap, fmt);
-        vfprintf(stderr, fmt, ap);
+        vfprintf(stderr, fmt_msg, ap);
         va_end(ap);
         fputs("\n", stderr);
         exit(-1);
@@ -66,11 +70,14 @@ panic(const char *fmt, ...)
 void
 epanic(const char *fmt, ...)
 {
+        // Add [PANIC] to start of message.
+        char fmt_msg[100];
+        snprintf(fmt_msg, sizeof fmt_msg, "\033[0;31m[PANIC]\033[0;37m %s", fmt);
+        //fmt_msg = \033[0;31m[PANIC]\033[0;37m + fmt
         va_list ap;
-
         term_reset();
         va_start(ap, fmt);
-        vfprintf(stderr, fmt, ap);
+        vfprintf(stderr, fmt_msg, ap);
         va_end(ap);
         fputs(": ", stderr);
         fputs(strerror(errno), stderr);
@@ -926,6 +933,7 @@ int
 main(int argc, char **argv)
 {
         bool force_ascii = false;
+
         int delay = 500;
 
         int opt;
@@ -946,8 +954,9 @@ main(int argc, char **argv)
                         delay = 1000 * val;
                         break;
                 }
+
                 default:
-                        fprintf(stderr, "Usage: %s [-a] [-d delay]\n", argv[0]);
+                        fprintf(stderr, "Usage: %s [-a] [-d delay] [-v]\n", argv[0]);
                         if (opt == 'h') {
                                 fprintf(stderr,
                                         "\n"
