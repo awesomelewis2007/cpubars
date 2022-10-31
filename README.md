@@ -1,4 +1,5 @@
 # cpubars
+**Note:** This is a modified version of this software the main branch is [here](https://github.com/aclements/cpubars)
 cpubars is a simple terminal-based tool for monitoring CPU load in
 real-time, especially tailored to monitoring large multicores over
 SSH.
